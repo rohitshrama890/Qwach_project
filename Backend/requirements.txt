@@ -1,13 +1,13 @@
-# python == 3.12.3 # for flask api development
+#python == 3.12.3 # for flask api development
 numpy == 2.2.4
 pandas ==  2.2.3
 joblib == 1.4.2
-# tensorflow == 2.19.0
+tensorflow == 2.19.0
 whois
-# re
-# socket
-# datetime
-# os
+re
+socket
+datetime
+os
 scikit-learn
 tldextract
 flask
