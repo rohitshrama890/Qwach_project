@@ -4,10 +4,6 @@ pandas ==  2.2.3
 joblib == 1.4.2
 tensorflow == 2.19.0
 whois
-
-socket
-datetime
-os
 scikit-learn
 tldextract
 flask
