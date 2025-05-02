@@ -29,7 +29,7 @@ app = Flask(__name__)
 os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0'
 
 # Paths
-meta_model_path = r"E:\Downloads\QRExtension\Backend\meta_model2.keras"
+meta_model_path = r"Backend\meta_model2.keras"
 # Load base models
 
 
@@ -51,7 +51,7 @@ def train_base_models(X, y):
     trained_models = {}
     for name, model in models.items():
         model.fit(X, y)
-        joblib.dump(model, f"E:\\Downloads\\QRExtension\\Backend\\models\\{name}_online_stacking2.pkl")
+        joblib.dump(model, f"Backend\\models\\{name}_online_stacking2.pkl")
         trained_models[name] = model
         print(f"[{datetime.now()}] ✅ {name.upper()} trained and saved.")
     return trained_models
@@ -230,10 +230,10 @@ from sklearn.metrics import accuracy_score
 def train():
     try:
         # Load and label data (ensure URLs column is named 'url')
-        phishing = pd.read_csv(r"E:\Downloads\QRExtension\Backend\phishtank_urls.csv").head(5)
+        phishing = pd.read_csv(r"Backend\phishtank_urls.csv").head(5)
         phishing["label"] = 1
 
-        clean = pd.read_csv(r"E:\Downloads\QRExtension\cleaned_urls.csv").head(5)
+        clean = pd.read_csv(r"Backend\cleaned_urls.csv").head(5)
         clean["label"] = 0
 
         df = pd.concat([phishing, clean], ignore_index=True)
@@ -279,12 +279,12 @@ def train():
 
         # Base model names
         base_model_names = ['rf', 'gb', 'lr', 'knn', 'dt']
-        meta_model_path = r"E:\Downloads\QRExtension\Backend\meta_model2.keras"
+        meta_model_path = r"Backend\meta_model2.keras"
 
         # Load old base models and predict
         old_preds = []
         for name in base_model_names:
-            model_path = f"E:\\Downloads\\QRExtension\\Backend\\models\\{name}_stacking2.pkl"
+            model_path = f"Backend\\models\\{name}_stacking2.pkl"
             if not os.path.exists(model_path):
                 raise FileNotFoundError(f"Missing base model: {model_path}")
             model = joblib.load(model_path)

@@ -19,10 +19,10 @@ app = Flask(__name__)
 CORS(app)
 # Load pre-trained models (adjust paths as needed)
 base_model_names = ['rf', 'gb', 'lr', 'knn', 'dt']
-base_models = {name: joblib.load(f'E:\\Downloads\\QRExtension\\Backend\\models\\{name}_stacking2.pkl') for name in base_model_names}
+base_models = {name: joblib.load(f'models\\{name}_stacking2.pkl') for name in base_model_names}
 
 # Load meta-model
-meta_model = tf.keras.models.load_model(r"E:\Downloads\QRExtension\Backend\meta_model2.keras")
+meta_model = tf.keras.models.load_model(r"meta_model2.keras")
 print("Model loaded successfully.")
 
 # Feature extraction function

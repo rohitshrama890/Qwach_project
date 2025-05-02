@@ -3,7 +3,7 @@ import csv
 import os
 
 # Define the list of your HTML pages (adjust if needed)
-html_files = [f"E:\\Downloads\\QRExtension\\Backend\\ahrefs_html_pages\\page_{i}.html" for i in range(1, 11)]  # pages 1 to 10
+html_files = [f"Backend\\ahrefs_html_pages\\page_{i}.html" for i in range(1, 11)]  # pages 1 to 10
 output_file = "all_urls.csv"
 
 # List to hold all URLs
